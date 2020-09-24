@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import CommentItem from "./CommentItem";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import CommentItem from './CommentItem';
+import PropTypes from 'prop-types';
 
 class Comment extends Component {
   render() {
-    console.log("Props que recibe Comment", this.props);
+    console.log('Props que recibe Comment', this.props);
     return this.props.comments.map((item) => (
       // Para probar el componente:
       //   <h1 key={item.id}>Comment Works!</h1>

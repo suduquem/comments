@@ -1,11 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      body: "",
+      id: '',
+      body: '',
     };
   }
 
@@ -13,8 +14,8 @@ export default class AddComment extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addBody(this.state.body);
-    this.setState({ body: "" });
+    this.props.addComment(this.state);
+    this.setState({ body: '' });
   };
 
   render() {
@@ -22,17 +23,18 @@ export default class AddComment extends Component {
       <form onSubmit={this.handleSubmit}>
         {/* onChange se usa cuando hay un cambio en ese elemento, para capturar lo que escribe el usuario */}
         <input
-          type="text"
-          name="body"
-          placeholder="Add Comment"
+          type='text'
+          name='body'
+          placeholder='Add Comment'
           onChange={this.handleChange}
+          value={this.state.body} //Para que se limpie el campo
         />
-        <input type="submit" value="Submit" />
+        <input type='submit' value='Submit' />
       </form>
     );
   }
 }
 
 AddComment.propTypes = {
-    addBody: PropTypes.func.isRequired
+  addComment: PropTypes.func.isRequired,
 };
