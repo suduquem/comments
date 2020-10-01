@@ -80,7 +80,8 @@ class App extends Component {
       body: "hola body",
     }; */
 
-    commentAdded.id = this.state.comments.length + 1;
+    // this.state.comments.length + 1
+    commentAdded.id = this.state.comments[this.state.comments.length - 1].id + 1;
     fetch('https://jsonplaceholder.typicode.com/comments', {
       method: 'POST',
       body: JSON.stringify({
